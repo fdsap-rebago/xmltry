@@ -5,6 +5,7 @@ import (
 	"try_xml/routes"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 // @title API - XML
@@ -23,7 +24,17 @@ func main() {
 	database.ConnectDatabase()
 	// ----------
 
-	app := fiber.New()
+	// Declare & initialize fiber
+	app := fiber.New(fiber.Config{
+		UnescapePath: true,
+	})
+
+	// Configure application CORS
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "*",
+		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
+	}))
+
 	routes.AppRoutes(app)
 
 	app.Listen(":5555")

@@ -23,7 +23,63 @@ const docTemplate = `{
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
-    "paths": {}
+    "paths": {
+        "/account/get_user": {
+            "get": {
+                "description": "Show all users",
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Show all users",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.ResponseBody"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseModel"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.ResponseBody": {
+            "type": "object",
+            "properties": {
+                "fullname": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "userID": {
+                    "description": "XMLName  xml.Name ` + "`" + `xml:\"data\"` + "`" + `",
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.ResponseModel": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "message": {
+                    "type": "string"
+                },
+                "retCode": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it

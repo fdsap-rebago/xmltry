@@ -1,4 +1,25 @@
 basePath: /
+definitions:
+  model.ResponseBody:
+    properties:
+      fullname:
+        type: string
+      password:
+        type: string
+      userID:
+        description: XMLName  xml.Name `xml:"data"`
+        type: integer
+      username:
+        type: string
+    type: object
+  response.ResponseModel:
+    properties:
+      data: {}
+      message:
+        type: string
+      retCode:
+        type: string
+    type: object
 host: localhost:5555
 info:
   contact:
@@ -11,5 +32,20 @@ info:
   termsOfService: http://swagger.io/terms/
   title: API - XML
   version: "1.0"
-paths: {}
+paths:
+  /account/get_user:
+    get:
+      description: Show all users
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ResponseBody'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ResponseModel'
+      summary: Show all users
+      tags:
+      - Users
 swagger: "2.0"

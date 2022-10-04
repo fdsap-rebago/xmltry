@@ -12,8 +12,8 @@ import (
 // @Summary    	Show all users
 // @Description	Show all users
 // @Tags		Users
-// @Produce     xml
-// @Success 	200 {object} model.Employees
+// @Produces    xml
+// @Success 	200 {object} model.ResponseBody
 // @Failure		400 {object} response.ResponseModel
 // @Router 		/account/get_user [get]
 func GetAccount(c *fiber.Ctx) error {
@@ -29,7 +29,7 @@ func GetAccount(c *fiber.Ctx) error {
 		responseBody = append(responseBody, ul)
 	}
 
-	m, err := xml.MarshalIndent(responseBody, "", "")
+	m, err := xml.MarshalIndent(responseBody, " ", "   ")
 
 	if err != nil {
 		panic(err)
