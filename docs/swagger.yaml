@@ -1,0 +1,15 @@
+basePath: /
+host: localhost:5555
+info:
+  contact:
+    email: raymond.bago@fortress-asya.com
+    name: FDSAP Support
+  description: FDSAP swagger template
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: API - XML
+  version: "1.0"
+paths: {}
+swagger: "2.0"

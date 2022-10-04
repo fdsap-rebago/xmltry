@@ -1,6 +1,7 @@
 package database
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 
@@ -11,15 +12,16 @@ import (
 var (
 	// DBConn Current Database connection
 	DBConn *gorm.DB
+	// GODB
+	DBGo *sql.DB
 	// Err Database connection error
 	Err error
 )
 
 func PostgresConfig(username, password, host, databaseName, port, sslMode, timeZone string) {
-	DBConn, Err = gorm.Open(
-		postgres.Open(
-			fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s",
-				host, username, password, databaseName, port, sslMode, timeZone)),
+	DBConn, Err = gorm.Open(postgres.Open(
+		fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s",
+			host, username, password, databaseName, port, sslMode, timeZone)),
 		&gorm.Config{})
 }
 

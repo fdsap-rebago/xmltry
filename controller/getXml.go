@@ -2,12 +2,20 @@ package controller
 
 import (
 	"encoding/xml"
-	"try_xml/database"
+	"try_xml/middleware/database"
 	"try_xml/model"
 
 	"github.com/gofiber/fiber/v2"
 )
 
+// GetEmployees godoc
+// @Summary    	Show all users
+// @Description	Show all users
+// @Tags		Users
+// @Produce     xml
+// @Success 	200 {object} model.Employees
+// @Failure		400 {object} response.ResponseModel
+// @Router 		/account/get_user [get]
 func GetAccount(c *fiber.Ctx) error {
 
 	dbModel := []model.User{}

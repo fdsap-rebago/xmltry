@@ -9,5 +9,5 @@ import (
 func AppRoutes(app *fiber.App) {
 
 	accountEndpoint := app.Group("/account")
-	accountEndpoint.Get("/get_account", controller.GetAccount)
+	accountEndpoint.Get("/get_user", controller.GetAccount)
 }

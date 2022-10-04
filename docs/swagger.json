@@ -1,0 +1,20 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "FDSAP swagger template",
+        "title": "API - XML",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "FDSAP Support",
+            "email": "raymond.bago@fortress-asya.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:5555",
+    "basePath": "/",
+    "paths": {}
+}
